@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI MYDATA Visual // AI Query Intelligence & Semantic Optimizer</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <!-- Twinkling stars parallax canvas background -->
+    <div id="canvas-container"></div>
+    
+    <div class="hud-scanlines"></div>
+    <div class="hud-vignette"></div>
+
+    <div class="hud-wrapper">
+        
+        <!-- HEADER -->
+        <header class="hud-header glass-card">
+            <div class="header-logo">
+                <div class="logo-orb-violet"></div>
+                <div class="logo-text">
+                    <h1>AI MYDATA Visual</h1>
+                    <span>AI QUERY OPTIMIZATION ENGINE</span>
+                </div>
+            </div>
+            
+            <div class="header-search">
+                <span class="search-icon">🔍</span>
+                <input type="text" placeholder="SEMANTIC SQL PARSING..." id="sql-search">
+            </div>
+
+            <div class="system-status-indicators">
+                <div class="status-pill">
+                    <span class="status-dot pulsing-violet"></span>
+                    <span class="lbl">COMPILER ENGINE:</span>
+                    <span class="val violet-text">ACTIVE</span>
+                </div>
+                <div class="status-pill">
+                    <span class="lbl">CACHED PATHS:</span>
+                    <span class="val cyan-text">8,402 SYNCED</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- LEFT SIDEBAR: Navigation Menu & SQL Query Input -->
+        <aside class="hud-left">
+            <!-- Navigation Menu -->
+            <div class="glass-card panel-container">
+                <h3 class="panel-title"><span class="panel-icon">✦</span> NEURAL NAVIGATION</h3>
+                <nav class="nav-menu">
+                    <a href="index.html" class="nav-link">🌌 Database Galaxy</a>
+                    <a href="query-intelligence.html" class="nav-link active">🧠 AI Query Optimizer</a>
+                    <a href="security-overwatch.html" class="nav-link">🛡️ Security Overwatch</a>
+                    <a href="predictive-capacity.html" class="nav-link">📈 Predictive Capacity</a>
+                    <a href="database-directory.html" class="nav-link">🪐 Database Directory</a>
+                </nav>
+            </div>
+
+            <!-- SQL Semantic input console -->
+            <div class="glass-card panel-container flex-grow">
+                <h3 class="panel-title"><span class="panel-icon">▰</span> SEMANTIC SQL PARSER</h3>
+                
+                <div class="sql-input-box">
+                    <textarea class="sql-textarea" id="txt-sql-query" placeholder="SELECT * FROM users JOIN orders ON users.id = orders.user_id WHERE users.active = true;"></textarea>
+                </div>
+                
+                <div class="action-grid">
+                    <button class="action-btn violet" id="btn-parse-query">RUN AI PARSE & COMPILE</button>
+                    <button class="action-btn" id="btn-mock-slow">INJECT SLOW QUERY SPIKE</button>
+                </div>
+
+                <div class="compilation-telemetry">
+                    <div class="stat-row">
+                        <span class="label">COMPILED INDEX STATE</span>
+                        <span class="val emerald-text">99.8% READY</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="label">EXECUTION PLAN TYPE</span>
+                        <span class="val cyan-text">NESTED LOOP JOIN</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="label">AI ESTIMATE SAVINGS</span>
+                        <span class="val gold-text">84% LATENCY REDUCTION</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- CENTER VIEWPORT: Floating Neural Execution Tree mapping scans/joins -->
+        <section class="hud-center-panels flex-grow">
+            <!-- Grid-free layout representing execution pathways -->
+            <div class="glass-card panel-container flex-grow" style="height: 100%; pointer-events: auto; margin-bottom: 5px;">
+                <h3 class="panel-title"><span class="panel-icon">▰</span> NEURAL QUERY EXECUTION TREE</h3>
+                
+                <!-- Tree representation mapping query joins using high-tech SVGs -->
+                <div class="neural-tree-canvas-wrapper" id="neural-tree-container">
+                    <svg class="neural-tree-svg" id="tree-svg" viewBox="0 0 600 400">
+                        <!-- Curved paths and nodes dynamically spawned by query-optimiser.js -->
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- RIGHT SIDEBAR: Optimization diagnostics & execution logs -->
+        <aside class="hud-right">
+            <!-- AI optimization suggestions -->
+            <div class="glass-card panel-container flex-grow scrollable-panel">
+                <h3 class="panel-title"><span class="panel-icon">✦</span> AUTONOMOUS INDEX RECOMMENDATIONS</h3>
+                
+                <div class="ai-box">
+                    <div class="ai-chat-logs" id="optim-diagnostics-container">
+                        <!-- AI index suggestions loaded here -->
+                    </div>
+                    
+                    <div class="suggestion-chips" id="optim-actions-box">
+                        <button class="sug-btn" data-action="index-rebuild">Rebuild Index CONCURRENTLY</button>
+                        <button class="sug-btn" data-action="sga-flush">Flush Buffer Cache</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slow Query Monitor terminal logs -->
+            <div class="glass-card panel-container">
+                <h3 class="panel-title"><span class="panel-icon">▲</span> SYSTEM SCAN LOG RATIOS</h3>
+                <div class="stats-indicators">
+                    <div class="stat-row">
+                        <span class="label">EXAMINED DOCS SCAN</span>
+                        <span class="val gold-text" id="docs-scanned">1,248 docs/sec</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="label">SLOW QUERIES COUNT</span>
+                        <span class="val green" id="slow-queries-val">0 ACTIVE</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- BOTTOM PANEL: transaction feed terminal -->
+        <footer class="hud-bottom glass-card">
+            <div class="stream-categories">
+                <div class="stream-title">PLANNING NODE LEGEND:</div>
+                <div class="category-indicators-row">
+                    <div class="ind-item">
+                        <span class="ind-dot violet-bg"></span>
+                        <div class="ind-details">
+                            <span class="name">Scan node filter</span>
+                            <span class="type">Hash Join / Loop</span>
+                        </div>
+                    </div>
+                    <div class="ind-item">
+                        <span class="ind-dot cyan-bg"></span>
+                        <div class="ind-details">
+                            <span class="name">Primary Index Scan</span>
+                            <span class="type">Key Lookup / Fast</span>
+                        </div>
+                    </div>
+                    <div class="ind-item">
+                        <span class="ind-dot emerald-bg"></span>
+                        <div class="ind-details">
+                            <span class="name">Sequential Scan</span>
+                            <span class="type">Table Scan / Bottleneck</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Log terminal console -->
+            <div class="terminal-log-container flex-grow">
+                <div class="terminal-header">
+                    <span>AI EXPLAIN ANALYZE COMPILER TERMINAL FEED</span>
+                    <button class="clear-terminal-btn" id="btn-clear-feed">RESET FEED</button>
+                </div>
+                <div class="terminal-console" id="query-log-feed">
+                    <!-- compiled plans append here -->
+                </div>
+            </div>
+
+            <div class="cam-controls">
+                <span class="section-title">CAMERA OPTION</span>
+                <div class="btn-group">
+                    <button class="cam-btn active" id="btn-view-tree">NESTED LOOPS</button>
+                    <button class="cam-btn" id="btn-view-matrix">HASH MATRIX</button>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- GreenSock GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    
+    <!-- ThreeJS Import Map -->
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+        }
+      }
+    </script>
+    <script type="module" src="/src/query-optimiser.js"></script>
+</body>
+</html>

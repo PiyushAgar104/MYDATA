@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI MYDATA Visual // Ecosystem Database Planet Directory</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <!-- 3D Canvas Background container -->
+    <div id="canvas-container"></div>
+    
+    <div class="hud-scanlines"></div>
+    <div class="hud-vignette"></div>
+
+    <div class="hud-wrapper">
+        
+        <!-- HEADER -->
+        <header class="hud-header glass-card">
+            <div class="header-logo">
+                <div class="logo-orb-violet"></div>
+                <div class="logo-text">
+                    <h1>AI MYDATA Visual</h1>
+                    <span>ECOSYSTEM DATABASE PLANET DIRECTORY</span>
+                </div>
+            </div>
+            
+            <div class="header-search">
+                <span class="search-icon">🔍</span>
+                <input type="text" placeholder="FILTER ECOSYSTEM PLANETS..." id="dir-search-box">
+            </div>
+
+            <div class="system-status-indicators">
+                <div class="status-pill">
+                    <span class="status-dot pulsing-violet"></span>
+                    <span class="lbl">ECOSYSTEM SCAN:</span>
+                    <span class="val violet-text">ALL IN SYNC</span>
+                </div>
+                <div class="status-pill">
+                    <span class="lbl">TOTAL INSTANCES:</span>
+                    <span class="val cyan-text">32 ACTIVE PLANETS</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- LEFT SIDEBAR: Navigation Menu & Filter controls -->
+        <aside class="hud-left">
+            <!-- Navigation Menu -->
+            <div class="glass-card panel-container">
+                <h3 class="panel-title"><span class="panel-icon">✦</span> NEURAL NAVIGATION</h3>
+                <nav class="nav-menu">
+                    <a href="index.html" class="nav-link">🌌 Database Galaxy</a>
+                    <a href="query-intelligence.html" class="nav-link">🧠 AI Query Optimizer</a>
+                    <a href="security-overwatch.html" class="nav-link">🛡️ Security Overwatch</a>
+                    <a href="predictive-capacity.html" class="nav-link">📈 Predictive Capacity</a>
+                    <a href="database-directory.html" class="nav-link active">🪐 Database Directory</a>
+                </nav>
+            </div>
+
+            <!-- Categories filters -->
+            <div class="glass-card panel-container flex-grow">
+                <h3 class="panel-title"><span class="panel-icon">▰</span> GALAXY ARCHITECTURE FILTERS</h3>
+                
+                <div class="dir-filters-list">
+                    <button class="dir-filter-chip active" data-filter="all">Show All Planets</button>
+                    <button class="dir-filter-chip" data-filter="relational">Relational Core</button>
+                    <button class="dir-filter-chip" data-filter="nosql">NoSQL & Graph</button>
+                    <button class="dir-filter-chip" data-filter="realtime">Real-Time & Cache</button>
+                    <button class="dir-filter-chip" data-filter="vector">Vector AI & Search</button>
+                    <button class="dir-filter-chip" data-filter="warehouse">Warehouse & Cloud</button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- CENTER VIEWPORT: Floating Database planets grid directory -->
+        <section class="hud-center-panels flex-grow scrollable-panel" style="grid-column: span 2; display:block; pointer-events:auto; overflow-y:auto; padding-right:10px;">
+            <!-- Grid container containing 32 active database cards -->
+            <div class="directory-grid" id="db-directory-grid">
+                <!-- Renders dynamically from src/directory-loader.js -->
+            </div>
+        </section>
+
+    </div>
+
+    <!-- GreenSock GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    
+    <!-- ThreeJS Import Map -->
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+        }
+      }
+    </script>
+    <script type="module" src="/src/directory-loader.js"></script>
+</body>
+</html>

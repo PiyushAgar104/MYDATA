@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI MYDATA Visual // AI Predictive Scaling & Capacity Forecaster</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <!-- 3D Canvas Background container -->
+    <div id="canvas-container"></div>
+    
+    <div class="hud-scanlines"></div>
+    <div class="hud-vignette"></div>
+
+    <div class="hud-wrapper">
+        
+        <!-- HEADER -->
+        <header class="hud-header glass-card">
+            <div class="header-logo">
+                <div class="logo-orb-violet"></div>
+                <div class="logo-text">
+                    <h1>AI MYDATA Visual</h1>
+                    <span>AI PREDICTIVE SCALING ENGINE</span>
+                </div>
+            </div>
+            
+            <div class="system-status-indicators">
+                <div class="status-pill">
+                    <span class="status-dot pulsing-violet"></span>
+                    <span class="lbl">SCALING STATUS:</span>
+                    <span class="val violet-text">OPTIMAL BUFFER</span>
+                </div>
+                <div class="status-pill">
+                    <span class="lbl">FAILURE THRESHOLD:</span>
+                    <span class="val emerald-text">0.02% (SECURE)</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- LEFT SIDEBAR: Navigation Menu & Forecaster Controllers -->
+        <aside class="hud-left">
+            <!-- Navigation Menu -->
+            <div class="glass-card panel-container">
+                <h3 class="panel-title"><span class="panel-icon">✦</span> NEURAL NAVIGATION</h3>
+                <nav class="nav-menu">
+                    <a href="index.html" class="nav-link">🌌 Database Galaxy</a>
+                    <a href="query-intelligence.html" class="nav-link">🧠 AI Query Optimizer</a>
+                    <a href="security-overwatch.html" class="nav-link">🛡️ Security Overwatch</a>
+                    <a href="predictive-capacity.html" class="nav-link active">📈 Predictive Capacity</a>
+                    <a href="database-directory.html" class="nav-link">🪐 Database Directory</a>
+                </nav>
+            </div>
+
+            <!-- Forecast Parameters -->
+            <div class="glass-card panel-container flex-grow">
+                <h3 class="panel-title"><span class="panel-icon">▰</span> PREDICTIVE SCALING MATRIX</h3>
+                
+                <div class="sliders-list">
+                    <div class="slider-item">
+                        <div class="slider-labels">
+                            <span>Simulate Future Traffic Spikes</span>
+                            <span class="lbl-val" id="val-sim-spike">1.0x</span>
+                        </div>
+                        <input type="range" class="hud-range" id="sim-spike-slider" min="1" max="5" value="1">
+                    </div>
+                </div>
+
+                <div class="action-grid flex-grow">
+                    <button class="action-btn violet" id="btn-scale-spike" style="height:55px;">SIMULATE 24H LOAD PEAK</button>
+                    <button class="action-btn" id="btn-auto-scale-toggle" style="height:55px; margin-top:8px;">AUTONOMOUS SCALING: ON</button>
+                </div>
+
+                <div class="compilation-telemetry">
+                    <div class="stat-row">
+                        <span class="label">FORECAST REASONING</span>
+                        <span class="val emerald-text">STABLE PREDICTION</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="label">CAPACITY BUFFER INDEX</span>
+                        <span class="val cyan-text">84.5% MARGIN</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- CENTER VIEWPORT: Forecast load wave matrix equations -->
+        <section class="hud-center-panels flex-grow">
+            <!-- Expanded Capacity plotting panel -->
+            <div class="glass-card panel-container flex-grow" style="height: 100%; pointer-events: auto; margin-bottom: 5px;">
+                <h3 class="panel-title"><span class="panel-icon">▰</span> REAL-TIME DRIFT & FAILURE WAVE FORECAST</h3>
+                
+                <div class="forecaster-canvas-wrapper">
+                    <!-- High-tech real-time load wave canvas -->
+                    <canvas id="capacity-drift-canvas" width="500" height="300"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- RIGHT SIDEBAR: Scaling insights and resources trackers -->
+        <aside class="hud-right">
+            <!-- AI predictive logs -->
+            <div class="glass-card panel-container flex-grow scrollable-panel">
+                <h3 class="panel-title"><span class="panel-icon">✦</span> AUTONOMOUS SCALING INTELLIGENCE</h3>
+                
+                <div class="ai-box">
+                    <div class="ai-chat-logs" id="predictive-chat-container">
+                        <div class="chat-msg">
+                            <span class="sender violet-text">✦ PLATFORM COPILOT</span>
+                            <p class="content">Machine learning forecaster active. Model ARIMA_PLUS synced. Estimated peak load threshold in 4h 12m. Allocating hot-standby nodes autonomously.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resource Allocations -->
+            <div class="glass-card panel-container">
+                <h3 class="panel-title"><span class="panel-icon">▲</span> ALLOCATED NODE HEALTH</h3>
+                <div class="stats-indicators">
+                    <div class="stat-row">
+                        <span class="label">ACTIVE KUBERNETES REPLICAS</span>
+                        <span class="val emerald-text" id="k8s-count">12 ACTIVE SHARDS</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="label">ESTIMATED STORAGE CAP</span>
+                        <span class="val cyan-text">892.4 TB TOTAL</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- BOTTOM PANEL: transaction feed terminal -->
+        <footer class="hud-bottom glass-card">
+            <div class="stream-categories">
+                <div class="stream-title">FORECAST LINE CODE:</div>
+                <div class="category-indicators-row">
+                    <div class="ind-item">
+                        <span class="ind-dot violet-bg"></span>
+                        <div class="ind-details">
+                            <span class="name">Real-Time Load</span>
+                            <span class="type">Active CPU pressure wave</span>
+                        </div>
+                    </div>
+                    <div class="ind-item">
+                        <span class="ind-dot cyan-bg"></span>
+                        <div class="ind-details">
+                            <span class="name">ARIMA Prediction</span>
+                            <span class="type">24h forecasted load curve</span>
+                        </div>
+                    </div>
+                    <div class="ind-item">
+                        <span class="ind-dot emerald-bg"></span>
+                        <div class="ind-details">
+                            <span class="name">Allocation Threshold</span>
+                            <span class="type">Physical capacity limit</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Console logs -->
+            <div class="terminal-log-container flex-grow">
+                <div class="terminal-header">
+                    <span>AI AUTONOMOUS SCALING & PROBABILITY TERMINAL FEED</span>
+                    <button class="clear-terminal-btn" id="btn-clear-pred">RESET TERMINAL</button>
+                </div>
+                <div class="terminal-console" id="predictive-log-feed">
+                    <!-- logs stream here -->
+                </div>
+            </div>
+
+            <div class="cam-controls">
+                <span class="section-title">FORECAST WINDOW</span>
+                <div class="btn-group">
+                    <button class="cam-btn active" id="btn-window-6h">6 HOURS</button>
+                    <button class="cam-btn" id="btn-window-24h">24 HOURS</button>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- GreenSock GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    
+    <!-- ThreeJS Import Map -->
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+        }
+      }
+    </script>
+    <script type="module" src="/src/capacity-forecaster.js"></script>
+</body>
+</html>

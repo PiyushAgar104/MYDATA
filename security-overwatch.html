@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI MYDATA Visual // Security & Threat Overwatch Intelligence</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <!-- 3D Viewport canvas container -->
+    <div id="canvas-container"></div>
+    
+    <div class="hud-scanlines"></div>
+    <div class="hud-vignette"></div>
+
+    <div class="hud-wrapper">
+        
+        <!-- HEADER -->
+        <header class="hud-header glass-card">
+            <div class="header-logo">
+                <div class="logo-orb-violet"></div>
+                <div class="logo-text">
+                    <h1>AI MYDATA Visual</h1>
+                    <span>SECURITY & THREAT INTELLIGENCE OVERWATCH</span>
+                </div>
+            </div>
+            
+            <div class="system-status-indicators">
+                <div class="status-pill">
+                    <span class="status-dot pulsing-violet"></span>
+                    <span class="lbl">OVERWATCH MODE:</span>
+                    <span class="val violet-text">ACTIVE SURVEILLANCE</span>
+                </div>
+                <div class="status-pill">
+                    <span class="lbl">THREAT INDEX:</span>
+                    <span class="val green" id="threat-lvl-header">0.00% SECURE</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- LEFT SIDEBAR: Navigation Menu & Intrusion Injectors -->
+        <aside class="hud-left">
+            <!-- Navigation Menu -->
+            <div class="glass-card panel-container">
+                <h3 class="panel-title"><span class="panel-icon">✦</span> NEURAL NAVIGATION</h3>
+                <nav class="nav-menu">
+                    <a href="index.html" class="nav-link">🌌 Database Galaxy</a>
+                    <a href="query-intelligence.html" class="nav-link">🧠 AI Query Optimizer</a>
+                    <a href="security-overwatch.html" class="nav-link active">🛡️ Security Overwatch</a>
+                    <a href="predictive-capacity.html" class="nav-link">📈 Predictive Capacity</a>
+                    <a href="database-directory.html" class="nav-link">🪐 Database Directory</a>
+                </nav>
+            </div>
+
+            <!-- Security Parameters & Actions -->
+            <div class="glass-card panel-container flex-grow">
+                <h3 class="panel-title"><span class="panel-icon">▰</span> INTRUSION THREAT GENERATORS</h3>
+                
+                <div class="sliders-list">
+                    <div class="slider-item">
+                        <div class="slider-labels">
+                            <span>Incident Alert Threshold</span>
+                            <span class="lbl-val" id="val-alert-thresh">85%</span>
+                        </div>
+                        <input type="range" class="hud-range" id="alert-thresh-slider" min="50" max="100" value="85">
+                    </div>
+                </div>
+
+                <div class="action-grid flex-grow">
+                    <button class="action-btn red" id="btn-threat-exploit" style="height:55px;">INJECT SQL INJECTION PACKETS</button>
+                    <button class="action-btn red" id="btn-threat-ddos" style="height:55px; margin-top:8px;">INJECT BRUTE FORCE CONNECTION SPAM</button>
+                </div>
+
+                <div class="compilation-telemetry">
+                    <div class="stat-row">
+                        <span class="label">ANOMALY INDEX</span>
+                        <span class="val green" id="txt-anomaly-index">ZERO DETECTED</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="label">VULNERABILITY LEVEL</span>
+                        <span class="val emerald-text">0.01% IMMUNE</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- CENTER VIEWPORT: Tactical Radar Sweep Canvas -->
+        <section class="hud-center-panels flex-grow">
+            <!-- Expanded Tactical Radar System panel -->
+            <div class="glass-card panel-container flex-grow" style="height: 100%; pointer-events: auto; margin-bottom: 5px;">
+                <h3 class="panel-title"><span class="panel-icon">▰</span> TACTICAL THREAT PROPAGATION RADAR</h3>
+                
+                <div class="expanded-radar-wrapper">
+                    <!-- High-tech 2D Vector Radar Sweep Canvas -->
+                    <canvas id="security-radar-canvas" width="400" height="400"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- RIGHT SIDEBAR: AI Security Copilot Chat & Anomaly Streams -->
+        <aside class="hud-right">
+            <!-- AI Copilot chat for security operations -->
+            <div class="glass-card panel-container flex-grow scrollable-panel">
+                <h3 class="panel-title"><span class="panel-icon">✦</span> AI THREAT REASONING</h3>
+                
+                <div class="ai-box">
+                    <div class="ai-chat-logs" id="security-chat-container">
+                        <div class="chat-msg">
+                            <span class="sender red-text">✦ PLATFORM COPILOT</span>
+                            <p class="content">Overwatch surveillance active. strictly scanning database query ports (5432, 1521, 27017, 6379). Latency signals nominal. Quarantined zero payloads.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="suggestion-chips">
+                        <button class="sug-btn active" id="btn-autoshield-heal" data-action="heal">Trigger Self-Heal Protocol</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vulnerability metrics -->
+            <div class="glass-card panel-container">
+                <h3 class="panel-title"><span class="panel-icon">▲</span> ACTIVE THREAT INTELLIGENCE FEED</h3>
+                <div class="stats-indicators">
+                    <div class="stat-row">
+                        <span class="label">MITIGATED INCIDENTS</span>
+                        <span class="val emerald-text" id="mitigated-count">24 ACTIVE SAVES</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="label">IP THREAT SCORE</span>
+                        <span class="val green" id="threat-score">0.0 (SECURE)</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- BOTTOM PANEL: Transaction feed console -->
+        <footer class="hud-bottom glass-card">
+            <div class="stream-categories">
+                <div class="stream-title">THREAT PROPAGATION CODE:</div>
+                <div class="category-indicators-row">
+                    <div class="ind-item">
+                        <span class="ind-dot red-bg"></span>
+                        <div class="ind-details">
+                            <span class="name">Malicious Vector</span>
+                            <span class="type">SQL Injection / Attack payload</span>
+                        </div>
+                    </div>
+                    <div class="ind-item">
+                        <span class="ind-dot gold-bg"></span>
+                        <div class="ind-details">
+                            <span class="name">Suspicious Sweep</span>
+                            <span class="type">Rapid Scan / Probe</span>
+                        </div>
+                    </div>
+                    <div class="ind-item">
+                        <span class="ind-dot emerald-bg"></span>
+                        <div class="ind-details">
+                            <span class="name">Mitigated Threat</span>
+                            <span class="type">Auto-quarantined / Secure</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Console logs terminal -->
+            <div class="terminal-log-container flex-grow">
+                <div class="terminal-header">
+                    <span>AI SECURITY INTRUSION OVERWATCH LOG FEED</span>
+                    <button class="clear-terminal-btn" id="btn-clear-sec">RESET TERMINAL</button>
+                </div>
+                <div class="terminal-console" id="security-log-feed">
+                    <!-- Warning logs stream here -->
+                </div>
+            </div>
+
+            <div class="cam-controls">
+                <span class="section-title">SECURITY LEVEL</span>
+                <div class="btn-group">
+                    <button class="cam-btn active" id="btn-sec-stable">STABLE</button>
+                    <button class="cam-btn" id="btn-sec-quar">ISOLATED</button>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- GreenSock GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    
+    <!-- ThreeJS Import Map -->
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+        }
+      }
+    </script>
+    <script type="module" src="/src/security-radar.js"></script>
+</body>
+</html>
